@@ -17,6 +17,11 @@ pipeline {
             steps {
                 sh 'dotnet build dotnetcoresample.csproj'   
             }
-        }  
+        }
+        stage('Archive reports') {
+            steps {
+                archive '/home/ubuntu/dotnetcore-docs-hello-world/bin/Debug/net6.0/publish/'
+            }
+        }
     }
 } 
